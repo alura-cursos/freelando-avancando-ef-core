@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Freelando.Modelo.Cliente">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgCAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAA=</HashCode>
+      <FileName>Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Freelando.Modelo.Profissional">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgCAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAA=</HashCode>
+      <FileName>Profissional.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Freelando.Modelo.Projeto">
+    <Position X="2.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Projeto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Freelando.Modelo.Servico">
+    <Position X="6.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Servico.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Freelando.Modelo.Candidatura">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAA=</HashCode>
+      <FileName>Candidatura.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Freelando.Modelo.Especialidade">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Especialidade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Freelando.Modelo.StatusProjeto" Collapsed="true">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAADAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>StatusProjeto.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Freelando.Modelo.StatusCandidatura" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>StatusCandidatura.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Freelando.Modelo.StatusServico" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAADAAAAAAAAAAACAAAAAAAAAAEAAA=</HashCode>
+      <FileName>StatusServico.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Arial" Size="10" />
+</ClassDiagram>
