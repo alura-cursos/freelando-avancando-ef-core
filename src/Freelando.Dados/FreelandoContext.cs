@@ -12,6 +12,7 @@ namespace Freelando.Dados;
 public class FreelandoContext: DbContext
 {
     private readonly IConfiguration _configuration;
+
     public FreelandoContext(DbContextOptions<FreelandoContext> options) : base(options)
     {
     }

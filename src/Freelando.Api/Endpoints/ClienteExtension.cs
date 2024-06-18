@@ -31,6 +31,12 @@ public static class ClienteExtension
             return Results.Ok(await Task.FromResult(clientes));
         }).WithTags("Cliente").WithOpenApi();
 
+        app.MapGet("/clientes/por-email", async ([FromServices] ClienteConverter converter, [FromServices] FreelandoContext contexto, string email) =>
+        {
+            var clientes = contexto.Clientes.Where(c => c.Email.Equals(email)).ToList();
+
+            return Results.Ok(await Task.FromResult(clientes));
+        }).WithTags("Cliente").WithOpenApi();
 
         app.MapPost("/cliente", async ([FromServices] ClienteConverter converter, [FromServices] FreelandoContext contexto, ClienteRequest clienteRequest) =>
         {
