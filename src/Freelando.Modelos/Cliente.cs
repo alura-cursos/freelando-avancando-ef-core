@@ -1,4 +1,6 @@
-﻿namespace Freelando.Modelo;
+﻿using Freelando.Modelos;
+
+namespace Freelando.Modelo;
 public class Cliente
 {
     public Cliente()
@@ -20,4 +22,6 @@ public class Cliente
     public string? Email { get; set; }
     public string? Telefone { get; set; }
     public ICollection<Projeto> Projetos { get; set; }
+    public Endereco Endereco { get; set; }
+
 }
