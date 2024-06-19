@@ -3,6 +3,8 @@ using Freelando.Api.Requests;
 using Freelando.Dados;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Transactions;
+using System;
 
 namespace Freelando.Api.Endpoints;
 
@@ -77,7 +79,7 @@ public static class ClienteExtension
 
             return Results.NoContent();
         }).WithTags("Cliente").WithOpenApi();
+            
 
-        
     }
 }

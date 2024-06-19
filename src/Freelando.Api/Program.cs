@@ -15,6 +15,11 @@ builder.Services.AddDbContext<FreelandoContext>((options) =>
     options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]);
 });
 
+builder.Services.AddDbContext<FreelandoClientesContext>((options) =>
+{
+    options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=FreelandoClientes;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+});
+
 builder.Services.AddTransient<FreelandoContext>();
 builder.Services.AddTransient(typeof(CandidaturaConverter));
 builder.Services.AddTransient(typeof(ClienteConverter));
