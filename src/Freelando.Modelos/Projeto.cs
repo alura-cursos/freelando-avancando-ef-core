@@ -32,4 +32,6 @@ public class Projeto
     public ICollection<Especialidade> Especialidades { get; set; }
     public ICollection<ProjetoEspecialidade> ProjetosEspecialidade { get; } = [];
     public ICollection<Servico> Servicos { get; set; }
+
+    public Vigencia Vigencia { get; set; }
 }
