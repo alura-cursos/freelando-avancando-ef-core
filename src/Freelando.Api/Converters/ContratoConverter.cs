@@ -22,6 +22,7 @@ public class ContratoConverter
     public Contrato RequestToEntity(ContratoRequest? contratoRequest)
     {
         _profissionalConverter = new ProfissionalConverter();
+        _servicoConverter = new ServicoConverter();
 
         if (contratoRequest == null)
         {

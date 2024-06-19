@@ -20,7 +20,6 @@ public static class ClienteExtension
         app.MapGet("/clientes/identificador-nome", async ([FromServices] ClienteConverter converter, [FromServices] FreelandoContext contexto) =>
         {
             var clientes = contexto.Clientes.Select(c => new {Identificador=c.Id,Nome=c.Nome });
-
             return Results.Ok(await Task.FromResult(clientes));
         }).WithTags("Cliente").WithOpenApi();
 
@@ -79,5 +78,6 @@ public static class ClienteExtension
             return Results.NoContent();
         }).WithTags("Cliente").WithOpenApi();
 
+        
     }
 }
