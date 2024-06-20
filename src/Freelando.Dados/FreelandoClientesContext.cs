@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Freelando.Dados;
 public class FreelandoClientesContext: DbContext
@@ -17,12 +18,7 @@ public class FreelandoClientesContext: DbContext
         }
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(FreelandoContext).Assembly);
-    }
-
-    public DbSet<ClienteNew> Clientes { get; set; }
+   public DbSet<ClienteNew> ClienteNew { get; set; }
     
 
 }
@@ -34,7 +30,7 @@ public class ClienteNew
         Id = Guid.NewGuid();
     }
     public Guid Id { get; set; }
-    public string? Name { get; set; }
+    public string? Nome { get; set; }
     public string? Email { get; set; }
     public DateTime DataInclusao { get; set; }
 }
