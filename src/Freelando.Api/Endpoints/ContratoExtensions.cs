@@ -31,6 +31,10 @@ public static class ContratoExtensions
                 await transaction.CommitAsync();
                 return Results.Created($"/contrato/{contrato.Id}", contrato);
             }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Results.BadRequest($" Problemas de simultaneidade {ex.Message}");
+            }
             catch (Exception ex)
             {
 
