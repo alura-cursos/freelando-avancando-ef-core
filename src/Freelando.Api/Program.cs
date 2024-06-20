@@ -1,6 +1,7 @@
 using Freelando.Api.Converters;
 using Freelando.Api.Endpoints;
 using Freelando.Dados;
+using Freelando.Dados.Repository;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,7 @@ builder.Services.AddDbContext<FreelandoClientesContext>((options) =>
 });
 
 builder.Services.AddTransient<FreelandoContext>();
+builder.Services.AddScoped<IEspecialidadeRepository, EspecialidadeRepository>();
 builder.Services.AddTransient(typeof(CandidaturaConverter));
 builder.Services.AddTransient(typeof(ClienteConverter));
 builder.Services.AddTransient(typeof(ContratoConverter));

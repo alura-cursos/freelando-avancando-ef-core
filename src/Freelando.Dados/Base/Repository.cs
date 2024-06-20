@@ -17,8 +17,7 @@ public class Repository<T> : IRepository<T> where T : class
 
     public virtual async Task Add(T entity)
     {
-        await _context.Set<T>().AddAsync(entity);
-        await this._context.SaveChangesAsync();
+        await _context.Set<T>().AddAsync(entity);        
     }
 
     public virtual async Task Delete(T entity)
