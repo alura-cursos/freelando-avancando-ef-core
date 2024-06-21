@@ -1,7 +1,6 @@
-﻿using Freelando.Dados.Repository;
-using Freelando.Modelo;
+﻿using Freelando.Modelo;
 
-namespace Freelando.Dados;
+namespace Freelando.Dados.Repository;
 public class EspecialidadeRepository : Repository<Especialidade>, IEspecialidadeRepository
 {
     public EspecialidadeRepository(FreelandoContext context) : base(context)
