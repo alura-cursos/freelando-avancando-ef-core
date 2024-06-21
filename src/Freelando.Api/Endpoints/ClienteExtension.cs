@@ -19,12 +19,12 @@ public static class ClienteExtension
 
         app.MapGet("/clientes/identificador-nome", async ([FromServices] ClienteConverter converter, [FromServices] FreelandoContext contexto) =>
         {
-            var clientes = contexto.Clientes.Select(c => new {Identificador=c.Id,Nome=c.Nome });
+            var clientes = contexto.Clientes.Select(c => new { Identificador = c.Id, Nome = c.Nome });
 
             return Results.Ok(await Task.FromResult(clientes));
         }).WithTags("Cliente").WithOpenApi();
 
-       app.MapPost("/cliente", async ([FromServices] ClienteConverter converter, [FromServices] FreelandoContext contexto, ClienteRequest clienteRequest) =>
+        app.MapPost("/cliente", async ([FromServices] ClienteConverter converter, [FromServices] FreelandoContext contexto, ClienteRequest clienteRequest) =>
         {
             var cliente = converter.RequestToEntity(clienteRequest);
             await contexto.Clientes.AddAsync(cliente);
