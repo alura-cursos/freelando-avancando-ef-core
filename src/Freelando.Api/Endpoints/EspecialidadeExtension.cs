@@ -3,6 +3,7 @@ using Freelando.Api.Converters;
 using Freelando.Api.Requests;
 using Freelando.Dados;
 using Freelando.Dados.Repository;
+using Freelando.Dados.UnitOfWork;
 using Freelando.Modelo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,7 +41,7 @@ public static class EspecialidadeExtensions
             return await especialidades.ToListAsync();
         }).WithTags("Especialidade").WithOpenApi();
 
-        app.MapPost("/especialidade", async ([FromServices] EspecialidadeConverter converter, [FromServices] IEspecialidadeRepository repository, EspecialidadeRequest especialidadeRequest) =>
+        app.MapPost("/especialidade", async ([FromServices] EspecialidadeConverter converter, [FromServices] IUnitOfWork unitOfWork, EspecialidadeRequest especialidadeRequest) =>
         {
             var especialidade = converter.RequestToEntity(especialidadeRequest);
 
@@ -51,7 +52,8 @@ public static class EspecialidadeExtensions
                 return Results.BadRequest("A descrição não pode estar em branco e deve começar com letra maiúscula.");
             }
 
-            await repository.Adicionar(especialidade);
+            await unitOfWork.EspecialidadeRepository.Adicionar(especialidade);
+            await unitOfWork.Commit();
            
             return Results.Created($"/especialidade/{especialidade.Id}", especialidade);
         }).WithTags("Especialidade").WithOpenApi();
