@@ -1,4 +1,5 @@
 ﻿using Freelando.Dados.Repository;
+using Freelando.Dados.Repository.Interfaces;
 
 namespace Freelando.Dados.UnitOfWork;
 public class UnitOfWork : IUnitOfWork

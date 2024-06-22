@@ -2,7 +2,7 @@
 using Freelando.Api.Converters;
 using Freelando.Api.Requests;
 using Freelando.Dados;
-using Freelando.Dados.Repository;
+using Freelando.Dados.Repository.Interfaces;
 using Freelando.Dados.UnitOfWork;
 using Freelando.Modelo;
 using Microsoft.AspNetCore.Mvc;

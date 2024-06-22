@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Freelando.Dados.Repository;
+namespace Freelando.Dados.Repository.Interfaces;
 public interface IRepository<T>
 {
     Task<IQueryable<T>> BuscarTodos();

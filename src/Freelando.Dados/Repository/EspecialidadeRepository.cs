@@ -1,4 +1,5 @@
-﻿using Freelando.Modelo;
+﻿using Freelando.Dados.Repository.Interfaces;
+using Freelando.Modelo;
 
 namespace Freelando.Dados.Repository;
 public class EspecialidadeRepository : Repository<Especialidade>, IEspecialidadeRepository
