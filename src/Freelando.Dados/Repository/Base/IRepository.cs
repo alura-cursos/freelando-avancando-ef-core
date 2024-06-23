@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
-namespace Freelando.Dados.Repository.Interfaces;
+namespace Freelando.Dados.Repository.Base;
 public interface IRepository<T>
 {
     Task<IQueryable<T>> BuscarTodos();

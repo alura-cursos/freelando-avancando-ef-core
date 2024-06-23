@@ -1,8 +1,7 @@
 ﻿using Freelando.Api.Converters;
 using Freelando.Api.Requests;
-using Freelando.Dados;
+using Freelando.Dados.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Freelando.Api.Endpoints;
 
@@ -10,26 +9,26 @@ public static class ServicoExtensions
 {
     public static void AddEndPointServicos(this WebApplication app)
     {
-        app.MapGet("/servicos", async ([FromServices] ServicoConverter converter, [FromServices] FreelandoContext contexto) =>
+        app.MapGet("/servicos", async ([FromServices] ServicoConverter converter, [FromServices] IUnitOfWork unitofOrk) =>
         {
-            var servico = converter.EntityListToResponseList(contexto.Servicos.ToList());
+            var servico = converter.EntityListToResponseList(await unitofOrk.ServicoRepository.BuscarTodos());
 
             return Results.Ok(await Task.FromResult(servico));
         }).WithTags("Servicos").WithOpenApi();
 
-        app.MapPost("/servico", async ([FromServices] ServicoConverter converter, [FromServices] FreelandoContext contexto, ServicoRequest servicoRequest) =>
+        app.MapPost("/servico", async ([FromServices] ServicoConverter converter, [FromServices] IUnitOfWork unitofOrk, ServicoRequest servicoRequest) =>
         {
             var servico = converter.RequestToEntity(servicoRequest);
 
-            await contexto.Servicos.AddAsync(servico);
-            await contexto.SaveChangesAsync();
+            await unitofOrk.ServicoRepository.Adicionar(servico);
+            await unitofOrk.Commit();
 
             return Results.Created($"/servico/{servico.Id}", servico);
         }).WithTags("Servicos").WithOpenApi();
 
-        app.MapPut("/servico/{id}", async ([FromServices] ServicoConverter converter, [FromServices] FreelandoContext contexto, Guid id, ServicoRequest servicoRequest) =>
+        app.MapPut("/servico/{id}", async ([FromServices] ServicoConverter converter, [FromServices] IUnitOfWork unitofOrk, Guid id, ServicoRequest servicoRequest) =>
         {
-            var servico = await contexto.Servicos.FindAsync(id);
+            var servico = await unitofOrk.ServicoRepository.BuscarPorId(x=>x.Id==id);
             if (servico is null)
             {
                 return Results.NotFound();
@@ -39,21 +38,22 @@ public static class ServicoExtensions
             servico.Descricao = servicoAtualizado.Descricao;
             servico.Status = servicoAtualizado.Status;
 
-            await contexto.SaveChangesAsync();
+            await unitofOrk.ServicoRepository.Atualizar(servico);
+            await unitofOrk.Commit();
 
             return Results.Ok((servico));
         }).WithTags("Servicos").WithOpenApi();
 
-        app.MapDelete("/servico/{id}", async ([FromServices] ServicoConverter converter, [FromServices] FreelandoContext contexto, Guid id) =>
+        app.MapDelete("/servico/{id}", async ([FromServices] ServicoConverter converter, [FromServices] IUnitOfWork unitofOrk, Guid id) =>
         {
-            var servico = await contexto.Servicos.FindAsync(id);
+            var servico = await unitofOrk.ServicoRepository.BuscarPorId(x=>x.Id==id);
             if (servico is null)
             {
                 return Results.NotFound();
             }
 
-            contexto.Servicos.Remove(servico);
-            await contexto.SaveChangesAsync();
+            await unitofOrk.ServicoRepository.Deletar(servico);
+            await unitofOrk.Commit();
 
             return Results.NoContent();
         }).WithTags("Servicos").WithOpenApi();

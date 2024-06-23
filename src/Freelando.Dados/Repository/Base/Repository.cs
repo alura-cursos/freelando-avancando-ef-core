@@ -1,8 +1,7 @@
-﻿using Freelando.Dados.Repository.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace Freelando.Dados.Repository;
+namespace Freelando.Dados.Repository.Base;
 public class Repository<T> : IRepository<T> where T : class
 {
     private FreelandoContext _context;

@@ -2,7 +2,7 @@
 using Freelando.Modelo;
 
 namespace Freelando.Dados.Repository;
-public interface IProfissionalRepository : IRepository<Profissional>
+public interface IServicoRepository : IRepository<Servico>
 {
 }
 
