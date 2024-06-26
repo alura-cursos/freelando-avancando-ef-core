@@ -41,4 +41,6 @@ public class FreelandoContext: DbContext
     public DbSet<Projeto> Projetos { get; set; }
     public DbSet<Servico> Servicos { get; set; }
     public DbSet<ProjetoEspecialidade> ProjetosEspecialides { get; set; }
+
+    public DbSet<Propostas> Propostas { get; set; }
 }
