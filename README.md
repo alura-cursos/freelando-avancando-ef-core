@@ -1,4 +1,4 @@
-<h3 align="center">Freelando</h3>
+<h1 align="center">Freelando - site de projetos freelancer</h1>
 
 ## 📚 Sobre o projeto
 
