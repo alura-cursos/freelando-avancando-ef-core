@@ -1,4 +1,4 @@
-<h1 align="center">Freelando - site de projetos freelancer</h1>
+<h1 align="center">Freelando - site de projetos freelancer ✅ </h1>
 
 ## 📚 Sobre o projeto
 
@@ -19,7 +19,7 @@ Bem-vindo ao repositório do Freelando, um site desenvolvido para conectar freel
 A configuração do banco de dados é feita através do arquivo appsettings.json, que fica na raiz do projeto Freelando.API. 
 O arquivo já está configurado para o banco de dados **Sql Server** local, mas caso queira utilizar outro banco de dados, basta alterar a string de conexão.
 
-### Docker
+### ⚓ Docker
 Opcionalmente você pode baixar uma imagem docker com uma versão inicial do banco, para isso é necessário ter instalado em sua máquina o **Docker Desktop**, que você consegue [fazer o download através do site oficial](https://www.docker.com/products/docker-desktop/).
 
 Para executar a imagem gerando um container o comando que você pode utilizar é o seguinte:
